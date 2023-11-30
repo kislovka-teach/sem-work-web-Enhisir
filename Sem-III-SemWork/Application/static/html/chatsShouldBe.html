@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Каталог</title>
+
+    <link href="/static/css/main.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light shadow bg-white" id="headNavbar">
+    <div class="container-fluid">
+        <div class="d-flex flex-column">
+            <div class="city-choice">Местоположение:
+                <a href="#modalSelectCity"
+                   class="highlight"
+                   data-toggle="modal"
+                   data-target="#modalSelectCity"
+                   id="selectCitySpan"></a>
+            </div>
+            <a class="navbar-brand" href="/">
+                <img src="/static/img/logo.jpg" width="50" height="50" alt="">
+                <img src="/static/img/logo-text.svg" alt="">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarCollapse"
+                aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Навигация">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse align-items-stretch"
+             id="navbarCollapse">
+            <form class="form-inline d-flex" role="search">
+                <input class="form-control mr-2" type="search"
+                       placeholder="Объявление..." aria-label="Search" id="searchInput">
+                <a class="btn btn-outline-success" id="searchBtn">поиск</a>
+            </form>
+            <ul class="nav navbar-nav ml-auto my-1" id="buttonContainer"></ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid d-flex justify-content-center p-4">
+    <div class="container chat-height-constraint w-50 bg-white d-flex flex-row p-0 rounded">
+        <div class="chat-list chat-height-constraint d-flex flex-column">
+            <div class="list-group scrollable h-100" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active"
+                   id="list-home-list"
+                   data-toggle="list"
+                   href="#list-home"
+                   role="tab"
+                   aria-controls="home">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action"
+                   id="list-profile-list"
+                   data-toggle="list"
+                   href="#list-profile"
+                   role="tab"
+                   aria-controls="profile">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action"
+                   id="list-messages-list"
+                   data-toggle="list"
+                   href="#list-messages"
+                   role="tab"
+                   aria-controls="messages">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action"
+                   id="list-settings-list"
+                   data-toggle="list"
+                   href="#list-settings"
+                   role="tab"
+                   aria-controls="settings">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action"
+                   id="list-settings-list1"
+                   data-toggle="list"
+                   href="#list-settings1"
+                   role="tab"
+                   aria-controls="settings">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action"
+                   id="list-settings-list2"
+                   data-toggle="list"
+                   href="#list-settings2"
+                   role="tab"
+                   aria-controls="settings">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй1</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action"
+                   id="list-settings-list2"
+                   data-toggle="list"
+                   href="#list-settings2"
+                   role="tab"
+                   aria-controls="settings">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй2</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action"
+                   id="list-settings-list3"
+                   data-toggle="list"
+                   href="#list-settings3"
+                   role="tab"
+                   aria-controls="settings">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="user-circle mr-3"><H1 id="userblockLetter">К</H1></div>
+                        <div class="d-flex flex-column flex-grow-1 my-auto">
+                            <span class="user-title highlight" id="userblockName">Картавый Хуй3</span>
+                            <span class="user-subtitle" id="announcementName">зис из э тойота</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-grow-1 border border-light">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active"
+                     id="list-home"
+                     role="tabpanel"
+                     aria-labelledby="list-home-list">
+                    <div class="d-flex chat-height-constraint flex-column">
+                        <div class="chat-box scrollable d-flex flex-column flex-grow-1 w-100 px-1" id="messages">
+                            <div class="w-50 message message-other d-flex mr-auto">
+                                sdfsdfsdasdsad asdsad asdas dasadas
+                                dsadasda dasd safsdfsd sdfsd fsd dsf sf sdf s
+                                df sf sdf sdf sdf sdf ds ds f  fs
+                            </div>
+                            <div class="w-50 message message-mine d-flex d-flex ml-auto">
+                                sdfsdfsd
+                            </div>
+                            <div class="w-50 message message-other d-flex mr-auto">
+                                sdfsdfsdasdsad asdsad asdas dasadas
+                                dsadasda dasd safsdfsd sdfsd fsd dsf sf sdf s
+                                df sf sdf sdf sdf sdf ds ds f  fs
+                            </div>
+                            <div class="w-50 message message-mine d-flex d-flex ml-auto">
+                                sdfsdfsd
+                            </div>
+                            <div class="w-50 message message-other d-flex mr-auto">
+                                sdfsdfsdasdsad asdsad asdas dasadas
+                                dsadasda dasd safsdfsd sdfsd fsd dsf sf sdf s
+                                df sf sdf sdf sdf sdf ds ds f  fs
+                            </div>
+                            <div class="w-50 message message-mine d-flex d-flex ml-auto">
+                                sdfsdfsd
+                            </div>
+                            <div class="w-50 message message-other d-flex mr-auto">
+                                sdfsdfsdasdsad asdsad asdas dasadas
+                                dsadasda dasd safsdfsd sdfsd fsd dsf sf sdf s
+                                df sf sdf sdf sdf sdf ds ds f  fs
+                            </div>
+                            <div class="w-50 message message-mine d-flex d-flex ml-auto">
+                                sdfsdfsd
+                            </div>
+                            <div class="w-50 message message-other d-flex mr-auto">
+                                sdfsdfsdasdsad asdsad asdas dasadas
+                                dsadasda dasd safsdfsd sdfsd fsd dsf sf sdf s
+                                df sf sdf sdf sdf sdf ds ds f  fs
+                            </div>
+                            <div class="w-50 message message-mine d-flex d-flex ml-auto">
+                                sdfsdfsd
+                            </div>
+                        </div>
+                        <form action="#" class="bg-light mt-auto">
+                            <div class="input-group">
+                                <input type="text"
+                                       placeholder="Type a message"
+                                       aria-describedby="button-addon2"
+                                       class="form-control rounded-0 border-0 py-4 bg-light">
+                                <div class="input-group-append">
+                                    <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+                <div class="tab-pane fade" id="list-settings1" role="tabpanel" aria-labelledby="list-settings-list1">...</div>
+                <div class="tab-pane fade" id="list-settings2" role="tabpanel" aria-labelledby="list-settings-list2">...</div>
+                <div class="tab-pane fade" id="list-settings3" role="tabpanel" aria-labelledby="list-settings-list3">...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalSelectCity" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Выбрать город</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="selectCity">Город</label>
+                        <select class="form-control"
+                                data-live-search="true"
+                                name="selectCity"
+                                id="selectCity" required>
+                            <option hidden disabled selected value></option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                <button id="selectCityButton" type="button" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"
+        crossorigin="anonymous"></script>
+
+<script src="/static/scripts/main.js"></script>
+<!--
+<script src="/static/scripts/announcementPage.js"></script>
+-->
+</body>

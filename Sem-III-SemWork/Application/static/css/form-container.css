@@ -1,0 +1,15 @@
+.form-container {
+    min-width: 400px;
+    padding: 1vw;
+    background-color: #ffffff;
+    border: 1px solid #ebedf0;
+    border-radius: 8px;
+}
+
+.form-container-lg {
+    min-width: 650px;
+    padding: 1vw;
+    background-color: #ffffff;
+    border: 1px solid #ebedf0;
+    border-radius: 8px;
+}

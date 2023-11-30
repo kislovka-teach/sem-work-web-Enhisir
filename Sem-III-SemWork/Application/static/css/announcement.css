@@ -1,0 +1,9 @@
+.announcement-image {
+    min-width: 650px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.announcement-title {
+    font-weight: 650;
+}

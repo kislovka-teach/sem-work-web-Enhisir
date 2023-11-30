@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Каталог</title>
+
+    <link href="/static/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light shadow bg-white" id="headNavbar">
+    <div class="container-fluid">
+        <div class="d-flex flex-column">
+            <div class="city-choice">Местоположение:
+                <a href="#modalSelectCity"
+                   class="highlight"
+                   data-toggle="modal"
+                   data-target="#modalSelectCity"
+                   id="selectCitySpan"></a>
+            </div>
+            <a class="navbar-brand" href="/">
+                <img src="/static/img/logo.jpg" width="50" height="50" alt="">
+                <img src="/static/img/logo-text.svg">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarCollapse"
+                aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Навигация">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse align-items-stretch"
+             id="navbarCollapse">
+            <form class="form-inline d-flex" role="search">
+                <input class="form-control mr-2" type="search"
+                       placeholder="Объявление..." aria-label="Search" id="searchInput">
+                <a class="btn btn-outline-success" id="searchBtn">поиск</a>
+            </form>
+            <ul class="nav navbar-nav ml-auto my-1" id="buttonContainer"></ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-md p-4 d-flex flex-row">
+    <div class="mr-3 d-flex flex-column" id="userBlockContainer">
+        <div class="user-block d-flex flex-row mb-2">
+            <div class="user-circle my-auto">
+                <H1 id="userblockLetter"></H1>
+            </div>
+            <div class="flex-column my-auto px-3">
+                <a class="user-title highlight" id="userblockName" href=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-3" id="itemsRow"></div>
+</div>
+
+<div class="modal fade" id="modalSelectCity" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Выбрать город</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="selectCity">Город</label>
+                        <select class="form-control"
+                                data-live-search="true"
+                                name="selectCity"
+                                id="selectCity" required>
+                            <option hidden disabled selected value></option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                <button id="selectCityButton" type="button" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"
+        crossorigin="anonymous"></script>
+
+<script src="/static/scripts/main.js"></script>
+<script src="/static/scripts/userPage.js"></script>
+</body>

@@ -1,0 +1,38 @@
+.item-card {
+    height: fit-content;
+    border-radius: 0;
+}
+
+.card-size {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+.item-card .card-img-top {
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.item-card .card-body {
+    padding: 2% 5%;
+}
+
+.item-card .card-title {
+    font-weight: bolder;
+    margin-bottom: 1%;
+}
+
+.item-card .card-title::after {
+    content: " ₽";
+}
+
+.item-card .card-link {
+    font-size: medium;
+    font-weight: 600;
+    text-decoration: none;
+    color: #0b9df7;
+}
+
+.item-card .card-link:hover {
+    color: #ff6163;
+}

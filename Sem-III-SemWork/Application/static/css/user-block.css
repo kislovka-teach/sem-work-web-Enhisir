@@ -1,0 +1,36 @@
+.user-block {
+    background-color: #fafafa;
+    border: 2px solid #eeeeee;
+    border-radius: 8px;
+    padding: 3%;
+    width: 100%;
+    min-height: fit-content;
+}
+
+.user-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.user-circle #userblockLetter {
+    color: white;
+    line-height: 100%;
+}
+
+.user-title {
+    margin-bottom: 0;
+    font-size: 16pt;
+}
+
+.user-subtitle {
+    color: #5b5b5b;
+    font-size: 10pt;
+}
