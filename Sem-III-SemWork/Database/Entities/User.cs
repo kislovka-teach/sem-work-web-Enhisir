@@ -27,7 +27,7 @@ public class User : AbstractUser
     
     public static async Task<User?> GetByLoginAsync(string login)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "select * from \"User\" where login = @Login";
@@ -54,7 +54,7 @@ public class User : AbstractUser
             return;
         }
             
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
 
         const string sql = "add_user";
@@ -89,7 +89,7 @@ public class User : AbstractUser
 
     private async Task UpdateAsync()
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "update \"User\" " +

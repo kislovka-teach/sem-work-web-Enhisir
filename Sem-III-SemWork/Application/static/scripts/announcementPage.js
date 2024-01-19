@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         
         const deleteBtn = document.createElement("a");
         deleteBtn.setAttribute("type", "button");
-        deleteBtn.className = "ml-2 btn btn-danger";
+        deleteBtn.className = "mt-2 btn btn-danger";
         deleteBtn.innerText = "Удалить";
         deleteBtn.onclick = async () => {
             const response = await fetch(`/api/v1/announcement/id/${id}/remove`, 

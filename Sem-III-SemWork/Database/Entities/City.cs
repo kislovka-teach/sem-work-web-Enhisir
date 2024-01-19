@@ -21,7 +21,7 @@ public class City
     
     public static async Task<City?> GetByIdAsync(Guid id)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "select * from \"City\" where id = @Id";
@@ -41,7 +41,7 @@ public class City
     
     public static async Task<City?> GetByNameAsync(string name)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "select * from \"City\" where name = @Name";
@@ -65,7 +65,7 @@ public class City
         if (await GetByIdAsync(Id) is not null)
             throw new InvalidOperationException(nameof(SaveAsync));
         
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
 
         const string sql = "insert into \"City\"(id, name) values (@Id, @Name)";
@@ -81,15 +81,13 @@ public class City
         {
             Console.WriteLine(e);
         }
-        finally
-        {
-            await connection.CloseAsync();
-        }
+        
+        await connection.CloseAsync();
     }
     
     public static async IAsyncEnumerable<City> GetAll()
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "select * from \"City\"";
@@ -98,5 +96,7 @@ public class City
         var reader = await cmd.ExecuteReaderAsync();
         while (await reader.ReadAsync())
             yield return new City(reader);
+        
+        await connection.CloseAsync();
     }
 }

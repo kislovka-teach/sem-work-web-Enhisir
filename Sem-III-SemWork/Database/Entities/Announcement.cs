@@ -4,7 +4,6 @@ using System.Data.Common;
 using System.Text;
 using System.Text.Json.Serialization;
 using Database.Exceptions;
-using Microsoft.Extensions.Primitives;
 using Npgsql;
 using NpgsqlTypes;
 
@@ -60,7 +59,7 @@ public class Announcement
     
     public static async Task<Announcement?> GetByIdAsync(Guid id)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "select * from \"Announcement\" where id = @Id and disabled=false";
@@ -80,7 +79,7 @@ public class Announcement
     
     public static async IAsyncEnumerable<Announcement> GetByUserAsync(string login)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "SELECT * FROM \"Announcement\" where owner_id=@Login and disabled=false" +
@@ -101,7 +100,7 @@ public class Announcement
     
     public static async IAsyncEnumerable<Announcement>? GetAll()
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "SELECT * FROM \"Announcement\" where disabled=false ORDER BY privileged DESC";
@@ -120,7 +119,7 @@ public class Announcement
     
     public static async IAsyncEnumerable<Announcement>? GetByCity(City city)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "SELECT * FROM \"Announcement\" where city_id=@CityId and disabled=false" +
@@ -141,7 +140,7 @@ public class Announcement
     
     public static async IAsyncEnumerable<Announcement>? GetBy(User? user, City? city, string? title)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         var cmd = new NpgsqlCommand();
         cmd.Connection = connection;
@@ -193,7 +192,7 @@ public class Announcement
     
     public static async IAsyncEnumerable<Announcement>? GetByName(string title)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "SELECT * FROM \"Announcement\" where disabled=false " +
@@ -221,7 +220,7 @@ public class Announcement
             return;
         }
 
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
 
         const string sql = "add_announcement";
@@ -258,8 +257,7 @@ public class Announcement
 
     public async Task DisableAsync()
     {
-        IsDisabled = false;
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
 
         const string sql = "update \"Announcement\"" +
@@ -269,6 +267,7 @@ public class Announcement
         
         await cmd.ExecuteNonQueryAsync();
         await connection.CloseAsync();
+        IsDisabled = false;
     }
 
     private async Task UpdateAsync()
@@ -277,7 +276,7 @@ public class Announcement
             throw new Exception();
         
         EntityValidator.Validate(this);
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
 
         const string sql = "update \"Announcement\"" +

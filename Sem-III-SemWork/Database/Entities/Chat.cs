@@ -28,7 +28,7 @@ public class Chat
     
     public static async Task<Chat?> GetByIdAsync(Guid id)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "select * from \"Chat\" where id = @Id";
@@ -48,7 +48,7 @@ public class Chat
     
     public static async IAsyncEnumerable<Chat> GetByUserAsync(string login)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "SELECT * FROM \"Chat\" " + 
@@ -72,7 +72,7 @@ public class Chat
     
     public static async IAsyncEnumerable<Chat> GetByAnnouncementAsync(Guid id)
     {
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
         
         const string sql = "SELECT * FROM \"Chat\" where announcement_id=@Id";
@@ -96,7 +96,7 @@ public class Chat
         if (await GetByIdAsync(Id) is not null)
             throw new InvalidOperationException(nameof(SaveAsync));
         
-        var connection = DatabaseSettings.GetConnection();
+        await using var connection = DatabaseSettings.GetConnection();
         await connection.OpenAsync();
 
         if ((await GetByAnnouncementAsync(Announcement.Id).ToListAsync())

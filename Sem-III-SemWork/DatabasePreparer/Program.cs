@@ -1,10 +1,11 @@
-﻿using Database;
+﻿using System.Data.Common;
+using Database;
 using Database.Entities;
 using DatabasePreparer;
 
-// await CityParser.SaveData();
+await CityParser.SaveData();
 
-var moscow = Guid.Parse("0c5b2444-70a0-4932-980c-b4dc0d3f02b5");
+/*var moscow = Guid.Parse("0c5b2444-70a0-4932-980c-b4dc0d3f02b5");*/
 
 /*var user = new User()
 {
@@ -15,9 +16,9 @@ var moscow = Guid.Parse("0c5b2444-70a0-4932-980c-b4dc0d3f02b5");
 user.SetPassword("xdkess2004");
 await user.SaveAsync();*/
 
-var myUser = await User.GetByLoginAsync("enhisir1");
+/*var myUser = await User.GetByLoginAsync("enhisir1");
 var user = await User.GetByLoginAsync("NikoImam");
-Console.WriteLine(user?.Name);
+Console.WriteLine(user?.Name);*/
 
 /*var anct = new Announcement()
 {
@@ -30,9 +31,9 @@ Console.WriteLine(user?.Name);
 };
 await anct.SaveAsync();*/
 
-var anct = await Announcement.GetByIdAsync(Guid.Parse("bdd78252-213a-4884-94c3-e6ffdd2c183c"));
+/*var anct = await Announcement.GetByIdAsync(Guid.Parse("bdd78252-213a-4884-94c3-e6ffdd2c183c"));
 Console.WriteLine(anct!.Title);
 
 var chat = new Chat(anct, myUser!);
-await chat.SaveAsync();
+await chat.SaveAsync();*/
 // var chat = new Chat();
